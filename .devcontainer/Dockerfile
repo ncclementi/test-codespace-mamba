@@ -1,6 +1,7 @@
 FROM mambaorg/micromamba:1.5.1
 COPY --chown=$MAMBA_USER:$MAMBA_USER environment.yml /tmp/env.yml
 RUN micromamba install -y -n base -f /tmp/env.yml && \
+    micromamba clean --all --yes
 
 
 # FROM mcr.microsoft.com/devcontainers/miniconda:0-3
